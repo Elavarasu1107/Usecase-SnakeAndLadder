@@ -10,7 +10,10 @@ namespace Game
     {
         public void DieRoller()
         {
-            int player1Position = 0;
+            int player1Position = 0, dieValueCheck;
+            Random value=new Random();
+            dieValueCheck = value.Next(1, 7);
+            Console.WriteLine("Dice Rolled to:" + dieValueCheck);
 
         }
     }
