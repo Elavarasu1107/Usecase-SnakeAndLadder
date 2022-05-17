@@ -10,10 +10,11 @@ namespace Game
     {
         public void DieRoller()
         {
-            int player1Position, winningPosition=100, noPlay=0, snake=-1, ladder=1, dieValueCheck, optionCheck;
+            int player1Position, winningPosition=100, noPlay=0, snake=-1, ladder=1, dieValueCheck, optionCheck,indexPosition=0;
             Random value=new Random();
+            //int[] position;
             
-            for(player1Position=0; player1Position <= winningPosition;)
+            for(player1Position=0; player1Position < winningPosition;)
             {
                 optionCheck = value.Next(-1, 2);
                 Console.WriteLine("Player option is:" + optionCheck);
@@ -37,9 +38,13 @@ namespace Game
                     player1Position = player1Position + noPlay;
                 }
                 Console.WriteLine("Player position is:" + player1Position);
+                if (player1Position > 100)
+                {
+                    player1Position = player1Position - dieValueCheck;
+                }
+
             }
-           
-            
+             
         }
     }
 }
