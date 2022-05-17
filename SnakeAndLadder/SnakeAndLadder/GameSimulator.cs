@@ -10,11 +10,10 @@ namespace Game
     {
         public void DieRoller()
         {
-            int player1Position, winningPosition=100, noPlay=0, snake=-1, ladder=1, dieValueCheck, optionCheck,indexPosition=0;
+            int playerPosition, winningPosition=100, noPlay=0, snake=-1, ladder=1, dieValueCheck, optionCheck, numOfTimesDiceRolled=1;
             Random value=new Random();
-            //int[] position;
             
-            for(player1Position=0; player1Position < winningPosition;)
+            for(playerPosition=0; playerPosition < winningPosition; numOfTimesDiceRolled++)
             {
                 optionCheck = value.Next(-1, 2);
                 Console.WriteLine("Player option is:" + optionCheck);
@@ -23,28 +22,30 @@ namespace Game
 
                 if (optionCheck == ladder)
                 {
-                    player1Position = player1Position + dieValueCheck;
+                    playerPosition = playerPosition + dieValueCheck;
                 }
                 else if (optionCheck == snake)
                 {
-                    player1Position = player1Position - dieValueCheck;
-                    if (player1Position < 0)
+                    playerPosition = playerPosition - dieValueCheck;
+                    if (playerPosition < 0)
                     {
-                        player1Position = 0;
+                        playerPosition = 0;
                     }
                 }
                 else
                 {
-                    player1Position = player1Position + noPlay;
+                    playerPosition = playerPosition + noPlay;
                 }
-                Console.WriteLine("Player position is:" + player1Position);
-                if (player1Position > 100)
+                Console.WriteLine("Player position is:" + playerPosition);
+                if (playerPosition > 100)
                 {
-                    player1Position = player1Position - dieValueCheck;
+                    playerPosition = playerPosition - dieValueCheck;
                 }
 
             }
-             
+            Console.WriteLine();
+            Console.WriteLine("No of times Dice rolled to win the game:" + numOfTimesDiceRolled);
+            Console.WriteLine();
         }
     }
 }
