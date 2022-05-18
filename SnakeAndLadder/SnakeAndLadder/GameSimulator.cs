@@ -10,7 +10,7 @@ namespace Game
     {
         public void DieRoller()
         {
-            int player1Position = 0, player2Position = 0, winningPosition = 100, noPlay = 0, snake = -1, ladder = 1, dieValueCheck, optionCheck, numOfTimesDiceRolled, playerTurn = 0, player1DiceRoll = 0, player2DiceRoll = 0;
+            int player1Position = 0, player2Position = 0, winningPosition = 100, noPlay = 0, snake = -1, ladder = 1, dieValueCheck, optionCheck, numOfTimesDiceRolled, playerTurn = 1, player1DiceRoll = 0, player2DiceRoll = 0;
             Random value = new Random();
 
             while (player1Position < winningPosition && player2Position < winningPosition)
@@ -21,7 +21,7 @@ namespace Game
                 dieValueCheck = value.Next(1, 7);
                 //Console.WriteLine("Dice Rolled to:" + dieValueCheck);
 
-                if (playerTurn == 0)
+                if (playerTurn == 1)
                 {
                     playerTurn = playerTurn + 1;
                     player1DiceRoll++;
@@ -42,11 +42,12 @@ namespace Game
                     {
                         player1Position = player1Position + noPlay;
                     }
-                    Console.WriteLine("Player 1 position is:" + player1Position);
+                    
                     if (player1Position > 100)
                     {
                         player1Position = player1Position - dieValueCheck;
                     }
+                    Console.WriteLine("Player 1 position is:" + player1Position);
                 }
                 else
                 {
@@ -69,11 +70,12 @@ namespace Game
                     {
                         player2Position = player2Position + noPlay;
                     }
-                    Console.WriteLine("Player 2 position is:" + player2Position);
+                    
                     if (player2Position > 100)
                     {
                         player2Position = player2Position - dieValueCheck;
                     }
+                    Console.WriteLine("Player 2 position is:" + player2Position);
                 }
 
             }
